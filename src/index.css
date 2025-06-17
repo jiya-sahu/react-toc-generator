@@ -1,1 +1,10 @@
 @import "tailwindcss";
+
+
+.toc-link {
+  @apply text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 block py-1;
+}
+
+.toc-link-active {
+  @apply text-blue-600 dark:text-blue-400 font-semibold border-l-4 border-blue-500 pl-2 bg-blue-50 dark:bg-gray-700;
+}
