@@ -88,7 +88,7 @@ function renderHeadings(headings) {
 export default function App() {
   return (
     <div className="flex flex-col md:flex-row min-h-screen bg-gray-50 dark:bg-zinc-900 text-gray-800 dark:text-gray-100">
-      {/* Sidebar */}
+
       <aside className="md:w-1/4 p-4 sticky top-0 h-screen overflow-auto bg-white dark:bg-zinc-800 border-r border-gray-200 dark:border-zinc-700 shadow-sm">
         <h2 className="text-lg font-bold mb-4 border-b border-gray-300 dark:border-zinc-600 pb-2">
           📚 Table of Contents
@@ -96,7 +96,7 @@ export default function App() {
         <TableOfContents headings={headings} />
       </aside>
 
-      {/* Main Content */}
+
       <main className="md:w-3/4 p-6">
         {renderHeadings(headings)}
       </main>
