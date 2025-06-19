@@ -12,7 +12,7 @@ function NestedItem({ node }) {
         {hasChildren ? (
           <button
             onClick={() => setCollapsed(!collapsed)}
-            className="text-gray-400 hover:text-blue-500 transition p-0.5"
+            className="text-gray-400 hover:text-blue-500  dark:hover:text-blue-400 transition p-0.5"
             aria-label={collapsed ? 'Expand section' : 'Collapse section'}
           >
             {collapsed ? (
