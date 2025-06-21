@@ -2,14 +2,18 @@ import { useState } from 'react';
 import { ChevronRightIcon, ChevronDownIcon } from '@heroicons/react/24/solid';
 import { slugify } from '../utils/slugify';
 
-function NestedItem({ node }) {
+function NestedItem({  
+  node, maxDepth, currentDepth, collapsible
+}) {
   const hasChildren = node.children && node.children.length > 0;
   const [collapsed, setCollapsed] = useState(true);
 
+  if (maxDepth && currentDepth > maxDepth) return null;
+
   return (
     <li className="ml-1">
-      <div className="flex items-start gap-1 p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md transition">
-        {hasChildren ? (
+      <div className="flex items-start gap-1 p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md transition  ">
+        {hasChildren && collapsible ? (
           <button
             onClick={() => setCollapsed(!collapsed)}
             className="text-gray-400 hover:text-blue-500  dark:hover:text-blue-400 transition p-0.5"
@@ -33,10 +37,17 @@ function NestedItem({ node }) {
         </a>
       </div>
 
-      {hasChildren && !collapsed && (
+      {hasChildren && (!collapsible || !collapsed) && (
         <ul className="ml-4 pl-2 mt-1 border-l border-gray-200 dark:border-gray-700 space-y-1">
           {node.children.map((child, idx) => (
-            <NestedItem key={idx} node={child} />
+            <NestedItem
+              key={idx}
+              node={child}
+              maxDepth={maxDepth}
+              currentDepth={currentDepth + 1}
+              collapsible={collapsible}
+              
+            />
           ))}
         </ul>
       )}
@@ -44,12 +55,20 @@ function NestedItem({ node }) {
   );
 }
 
-export default function TableOfContents({ headings }) {
+export default function TableOfContents({ headings ,
+   maxDepth = 6,
+   collapsible = true,
+}) {
   return (
     <nav aria-label="Table of Contents">
-      <ul className="space-y-1 text-sm">
+      <ul className="space-y-1 text-sm ">
         {headings.map((node, idx) => (
-          <NestedItem key={idx} node={node} />
+          <NestedItem key={idx}
+            node={node}
+            maxDepth={maxDepth}
+            currentDepth={1}
+            collapsible={collapsible}
+          />
         ))}
       </ul>
     </nav>
