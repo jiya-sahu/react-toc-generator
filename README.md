@@ -26,6 +26,25 @@ A modern React-based documentation/table-of-contents (TOC) app with dark/light t
 
 ---
 
+## 📂 Project Structure
+
+```
+src/
+│
+├── components/
+│   └── tableOfContents.jsx   # Renders nested ToC with collapsible items
+│
+├── utils/
+│   └── slugify.js            # Converts headings to valid URL slugs
+│
+├── content.js                # Sample nested headings structure
+├── App.jsx                   # Main application logic (dark mode, scrollspy)
+├── index.css                 # Tailwind directives + custom scrollbar
+└── main.jsx                  # Vite entry point
+```
+
+---
+
 ## 🚀 Setup & Run
 
 ### 1. Clone the repository
@@ -69,24 +88,9 @@ Open [http://localhost:5173](http://localhost:5173) in your browser.
 - [Heroicons](https://heroicons.com/)
 
 ---
-## 📂Project Structure
-src/
-│
-├── components/
-│   └── tableOfContents.jsx   # Renders nested ToC with collapsible items
-│
-├── utils/
-│   └── slugify.js            # Converts headings to valid URL slugs
-│
-├── content.js                # Sample nested headings structure
-├── App.jsx                   # Main application logic (dark mode, scrollspy)
-├── index.css                 # Tailwind directives + custom scrollbar
-└── main.jsx                  # Vite entry point
-
----
 
 ## 🤖 AI Disclosure
 
-This project’s code, documentation were assisted and refined  by GitHub Copilot (an AI tool powered by OpenAI’s GPT models).
-and ChatGPT-4o by OpenAI 
+This project’s code and documentation were assisted and refined by GitHub Copilot (an AI tool powered by OpenAI’s GPT models) and ChatGPT-4o by OpenAI.
+
 ---
